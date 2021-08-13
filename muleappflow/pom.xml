@@ -15,6 +15,9 @@
 
 		<app.runtime>4.3.0-20210719</app.runtime>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
+		
+		<sonar.sources>src/main/mule</sonar.sources>
+		<sonar.tests/>
 	</properties>
 
 	<build>
@@ -29,6 +32,20 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<username>anirudh20</username>
+						<password>@#Rudh20</password>
+						<environment>Sandbox</environment>
+						<muleVersion>4.3.0</muleVersion>
+						<workers>1</workers>
+						<workerType>Micro</workerType>
+						<applicationName>muleappflow</applicationName>
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
+				
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -45,6 +62,11 @@
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.1</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.6.1.1688</version>
 		</dependency>
 	</dependencies>
 
